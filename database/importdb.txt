@@ -1,0 +1,30 @@
+- buka xampp
+- buka database mtsspuimaja
+- click TAB SQL di sebelah kanan
+- copas SQL Query di bawah ini
+- click GO
+- buat folder foto_berita di folder aplikasi ini
+
+CREATE TABLE IF NOT EXISTS `kategori` (
+  `id_kategori` int(5) NOT NULL AUTO_INCREMENT,
+  `nama_kategori` varchar(50) COLLATE latin1_general_ci NOT NULL,
+  `keterangan` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `aktif` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'Y',
+  PRIMARY KEY (`id_kategori`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `berita` (
+  `id_berita` int(5) NOT NULL AUTO_INCREMENT,
+  `id_kategori` int(5) NOT NULL,
+  `judul` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `isi_berita` text COLLATE latin1_general_ci NOT NULL,
+  `hari` varchar(20) COLLATE latin1_general_ci NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam` time NOT NULL,
+  `gambar` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `dibaca` int(5) NOT NULL DEFAULT '1',
+  `aktif` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'Y',
+  PRIMARY KEY (`id_berita`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+
